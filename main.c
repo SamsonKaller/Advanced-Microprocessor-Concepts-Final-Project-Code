@@ -59,8 +59,8 @@ int main(void)
         LastZ = zCoord;
         
         // read x-z values from sensor
-        xCoord = readX();
-        zCoord = readZ();
+        xCoord = readXcoord();
+        zCoord = readZcoord();
         
         // first, if coordinates are same as the last then no movement
         // determines if received coordinates are within deadzone,

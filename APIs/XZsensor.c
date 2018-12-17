@@ -76,7 +76,7 @@ void XZ_Initialize(void)
  *  Parameters: None
  *  Return:     xData: X position from XZ sensor
  */
-unsigned char readX(void)
+unsigned char readXcoord(void)
 {
     unsigned char xData;
     xData = ReadByte(X_REG);
@@ -88,7 +88,7 @@ unsigned char readX(void)
  *  Parameters: None
  *  Return:     zData: Z position from XZ sensor
  */
-unsigned char readZ(void)
+unsigned char readZcoord(void)
 {
     unsigned char zData;
     zData = ReadByte(Z_REG);
