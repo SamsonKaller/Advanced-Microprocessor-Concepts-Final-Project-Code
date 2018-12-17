@@ -56,7 +56,7 @@ int main(void)
         xCoord = readXcoord();
         zCoord = readZcoord();
         
-        // checks movement direction
+        // checks cursor movement direction
         checkDir(LastX, LastZ, xCoord, zCoord, &xCursor, &zCursor);
         
         // outputs cursor position to Tera Term window
