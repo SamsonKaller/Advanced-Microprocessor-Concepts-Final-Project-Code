@@ -59,7 +59,7 @@ char ReadByte(_wchar_t reg)
 
 /*
  *  Initializes the XZ sensor. DRE reg is set to assert DR pin when coordinate
- *  data is available, and DRECFG reg is set to DR pin is active HIGH and DR.
+ *  data is available, and DRECFG reg is set to DR pin is active HIGH and DR is
  *  enabled.
  *  Parameters: None
  *  Return:     None
