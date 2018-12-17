@@ -23,8 +23,8 @@
 #define Z_REG       0x0A
 
 // hex config values for DRE and DRCFG registers of XZ sensor
-#define DRE_CFG     0x02
-#define DRCFG_CFG   0x81
+#define DRE_CFG     0x02    // assert DR pin when coordinate data available
+#define DRCFG_CFG   0x81    // DR pin enable, active HIGH 
 
 // push button ports for read operations
 #define S3          PORTDbits.RD6
