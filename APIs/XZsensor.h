@@ -44,6 +44,7 @@ char ReadByte(_wchar_t reg);
 void XZ_Initialize(void);
 unsigned char readX(void);
 unsigned char readZ(void);
+void moveCursor(char* pBuff, unsigned char z, unsigned char x);
 void colorPix(void);
 void erasePix(void);
 void ClrScr(void);

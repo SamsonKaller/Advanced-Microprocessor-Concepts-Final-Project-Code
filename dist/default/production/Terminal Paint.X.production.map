@@ -66,7 +66,7 @@ c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\libm-elf.a(divsi3.
 c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\libm-elf.a(udivsi3.eo)
                               c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\libm-elf.a(divsi3.eo) (___udivsi3)
 c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-c-elf.a(sprintf_cdnopuxX.XXeo)
-                              build/default/production/main.o (__sprintf_cdnopuxX)
+                              build/default/production/APIs/XZsensor.o (__sprintf_cdnopuxX)
 c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-c-elf.a(xprintf_cdnopuxX.XXeo)
                               c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-c-elf.a(sprintf_cdnopuxX.XXeo) (___Printf_cdnopuxX)
 c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-c-elf.a(memcpy.XX_eo)
@@ -94,14 +94,14 @@ xc16-ld 1.35 (A)
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0xb34          0x10ce  (4302)
-.const                       0xd34                0xbc           0x11a  (282)
-.text                        0xdf0               0x44a           0x66f  (1647)
-.dinit                      0x123a                0x56            0x81  (129)
-.text                       0x1290                0x84            0xc6  (198)
-.init.delay32               0x1314                0x1c            0x2a  (42)
-.text                       0x1330                0x30            0x48  (72)
+.const                       0xd34                0xba           0x117  (279)
+.text                        0xdee               0x45c           0x68a  (1674)
+.dinit                      0x124a                0x56            0x81  (129)
+.text                       0x12a0                0x84            0xc6  (198)
+.init.delay32               0x1324                0x1c            0x2a  (42)
+.text                       0x1340                0x30            0x48  (72)
 
-                 Total "program" memory used (bytes):         0x1a10  (6672) 5%
+                 Total "program" memory used (bytes):         0x1a28  (6696) 5%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -168,53 +168,54 @@ External Symbols in Program Memory (by address):
                   0x000c70                  ___umoddi3
                   0x000c78                  ___divdi3
                   0x000cd8                  ___moddi3
-                  0x000df0                  _I2C1_Initialize
-                  0x000e28                  _startI2C1
-                  0x000e3a                  _stopI2C1
-                  0x000e4c                  _putI2C1
-                  0x000e72                  _getI2C1
-                  0x000ec0                  _write1I2C1
-                  0x000ed8                  _writeNI2C1
-                  0x000f0a                  _read1I2C1
-                  0x000f26                  _readNI2C1
-                  0x000f68                  _main
-                  0x0010bc                  _UART2_Initialize
-                  0x0010dc                  _outChar
-                  0x0010f4                  _inChar
-                  0x00111c                  _outString
-                  0x001136                  _inString
-                  0x00117a                  _checkRxErrorUART2
-                  0x00118e                  _INT0_Initialize
-                  0x0011a6                  _WriteByte
-                  0x0011c2                  _ReadByte
-                  0x0011e2                  _XZ_Initialize
-                  0x0011f4                  _readX
-                  0x001202                  _readZ
-                  0x001210                  _IO_Initialize
-                  0x00121c                  _colorPix
-                  0x001226                  _erasePix
-                  0x001230                  _clrScr
-                  0x001290                  _PIN_MANAGER_Initialize
-                  0x0012d6                  _CLOCK_Initialize
-                  0x001314                  ___delay32
-                  0x001346                  _SYSTEM_Initialize
-                  0x001352                  _OSCILLATOR_Initialize
-                  0x00135a                  _INTERRUPT_Initialize
+                  0x000dee                  _I2C1_Initialize
+                  0x000e26                  _startI2C1
+                  0x000e38                  _stopI2C1
+                  0x000e4a                  _putI2C1
+                  0x000e70                  _getI2C1
+                  0x000ebe                  _write1I2C1
+                  0x000ed6                  _writeNI2C1
+                  0x000f08                  _read1I2C1
+                  0x000f24                  _readNI2C1
+                  0x000f66                  _main
+                  0x0010a6                  _UART2_Initialize
+                  0x0010c6                  _outChar
+                  0x0010de                  _inChar
+                  0x001106                  _outString
+                  0x001120                  _inString
+                  0x001164                  _checkRxErrorUART2
+                  0x001178                  _INT0_Initialize
+                  0x001190                  _WriteByte
+                  0x0011ac                  _ReadByte
+                  0x0011cc                  _XZ_Initialize
+                  0x0011de                  _readX
+                  0x0011ec                  _readZ
+                  0x0011fa                  _IO_Initialize
+                  0x001206                  _moveCursor
+                  0x00122c                  _colorPix
+                  0x001236                  _erasePix
+                  0x001240                  _clrScr
+                  0x0012a0                  _PIN_MANAGER_Initialize
+                  0x0012e6                  _CLOCK_Initialize
+                  0x001324                  ___delay32
+                  0x001356                  _SYSTEM_Initialize
+                  0x001362                  _OSCILLATOR_Initialize
+                  0x00136a                  _INTERRUPT_Initialize
 
 External Symbols in Program Memory (by name):
 
-                  0x0012d6                  _CLOCK_Initialize
-                  0x000df0                  _I2C1_Initialize
-                  0x00118e                  _INT0_Initialize
-                  0x00135a                  _INTERRUPT_Initialize
-                  0x001210                  _IO_Initialize
-                  0x001352                  _OSCILLATOR_Initialize
-                  0x001290                  _PIN_MANAGER_Initialize
-                  0x0011c2                  _ReadByte
-                  0x001346                  _SYSTEM_Initialize
-                  0x0010bc                  _UART2_Initialize
-                  0x0011a6                  _WriteByte
-                  0x0011e2                  _XZ_Initialize
+                  0x0012e6                  _CLOCK_Initialize
+                  0x000dee                  _I2C1_Initialize
+                  0x001178                  _INT0_Initialize
+                  0x00136a                  _INTERRUPT_Initialize
+                  0x0011fa                  _IO_Initialize
+                  0x001362                  _OSCILLATOR_Initialize
+                  0x0012a0                  _PIN_MANAGER_Initialize
+                  0x0011ac                  _ReadByte
+                  0x001356                  _SYSTEM_Initialize
+                  0x0010a6                  _UART2_Initialize
+                  0x001190                  _WriteByte
+                  0x0011cc                  _XZ_Initialize
                   0x000322                  __AddressError
                   0x000332                  __DefaultInterrupt
                   0x0008cc                  __Litob
@@ -226,7 +227,7 @@ External Symbols in Program Memory (by name):
                   0x0006a4                  __Vacopy
                   0x0003a2                  ___Printf_cdnopuxX
                   0x0006a8                  ___Putfld_cdnopuxX
-                  0x001314                  ___delay32
+                  0x001324                  ___delay32
                   0x000c78                  ___divdi3
                   0x000338                  ___divsi3
                   0x000cd8                  ___moddi3
@@ -240,27 +241,28 @@ External Symbols in Program Memory (by name):
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
                   0x000384                  __sprintf_cdnopuxX
-                  0x00117a                  _checkRxErrorUART2
-                  0x001230                  _clrScr
-                  0x00121c                  _colorPix
-                  0x001226                  _erasePix
-                  0x000e72                  _getI2C1
-                  0x0010f4                  _inChar
-                  0x001136                  _inString
-                  0x000f68                  _main
+                  0x001164                  _checkRxErrorUART2
+                  0x001240                  _clrScr
+                  0x00122c                  _colorPix
+                  0x001236                  _erasePix
+                  0x000e70                  _getI2C1
+                  0x0010de                  _inChar
+                  0x001120                  _inString
+                  0x000f66                  _main
                   0x000506                  _memcpy
-                  0x0010dc                  _outChar
-                  0x00111c                  _outString
-                  0x000e4c                  _putI2C1
-                  0x000f0a                  _read1I2C1
-                  0x000f26                  _readNI2C1
-                  0x0011f4                  _readX
-                  0x001202                  _readZ
-                  0x000e28                  _startI2C1
-                  0x000e3a                  _stopI2C1
+                  0x001206                  _moveCursor
+                  0x0010c6                  _outChar
+                  0x001106                  _outString
+                  0x000e4a                  _putI2C1
+                  0x000f08                  _read1I2C1
+                  0x000f24                  _readNI2C1
+                  0x0011de                  _readX
+                  0x0011ec                  _readZ
+                  0x000e26                  _startI2C1
+                  0x000e38                  _stopI2C1
                   0x000514                  _strchr
-                  0x000ec0                  _write1I2C1
-                  0x000ed8                  _writeNI2C1
+                  0x000ebe                  _write1I2C1
+                  0x000ed6                  _writeNI2C1
                   0x000376                  sprintf_cdnopuxX.XXeo:_prout
 
 Memory Configuration
@@ -395,67 +397,67 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x3172
+.debug_info       0x000000       0x31ac
  *(.debug_info)
  .debug_info      0x000000        0x737 build/default/production/APIs/i2c1.o
  .debug_info      0x000737        0x809 build/default/production/APIs/uart2.o
- .debug_info      0x000f40        0xca0 build/default/production/APIs/XZsensor.o
- .debug_info      0x001be0        0x18b build/default/production/mcc_generated_files/interrupt_manager.o
- .debug_info      0x001d6b        0x3b7 build/default/production/mcc_generated_files/traps.o
- .debug_info      0x002122        0x480 build/default/production/mcc_generated_files/pin_manager.o
- .debug_info      0x0025a2        0x17e build/default/production/mcc_generated_files/mcc.o
- .debug_info      0x002720        0x385 build/default/production/mcc_generated_files/clock.o
- .debug_info      0x002aa5        0x17d build/default/production/mcc_generated_files/system.o
- .debug_info      0x002c22        0x550 build/default/production/main.o
+ .debug_info      0x000f40        0xcda build/default/production/APIs/XZsensor.o
+ .debug_info      0x001c1a        0x18b build/default/production/mcc_generated_files/interrupt_manager.o
+ .debug_info      0x001da5        0x3b7 build/default/production/mcc_generated_files/traps.o
+ .debug_info      0x00215c        0x480 build/default/production/mcc_generated_files/pin_manager.o
+ .debug_info      0x0025dc        0x17e build/default/production/mcc_generated_files/mcc.o
+ .debug_info      0x00275a        0x385 build/default/production/mcc_generated_files/clock.o
+ .debug_info      0x002adf        0x17d build/default/production/mcc_generated_files/system.o
+ .debug_info      0x002c5c        0x550 build/default/production/main.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x832
+.debug_abbrev     0x000000        0x84b
  *(.debug_abbrev)
  .debug_abbrev    0x000000        0x14a build/default/production/APIs/i2c1.o
  .debug_abbrev    0x00014a        0x1c7 build/default/production/APIs/uart2.o
- .debug_abbrev    0x000311        0x15f build/default/production/APIs/XZsensor.o
- .debug_abbrev    0x000470         0x34 build/default/production/mcc_generated_files/interrupt_manager.o
- .debug_abbrev    0x0004a4        0x100 build/default/production/mcc_generated_files/traps.o
- .debug_abbrev    0x0005a4         0x6a build/default/production/mcc_generated_files/pin_manager.o
- .debug_abbrev    0x00060e         0x34 build/default/production/mcc_generated_files/mcc.o
- .debug_abbrev    0x000642         0xc5 build/default/production/mcc_generated_files/clock.o
- .debug_abbrev    0x000707         0x34 build/default/production/mcc_generated_files/system.o
- .debug_abbrev    0x00073b         0xf7 build/default/production/main.o
+ .debug_abbrev    0x000311        0x178 build/default/production/APIs/XZsensor.o
+ .debug_abbrev    0x000489         0x34 build/default/production/mcc_generated_files/interrupt_manager.o
+ .debug_abbrev    0x0004bd        0x100 build/default/production/mcc_generated_files/traps.o
+ .debug_abbrev    0x0005bd         0x6a build/default/production/mcc_generated_files/pin_manager.o
+ .debug_abbrev    0x000627         0x34 build/default/production/mcc_generated_files/mcc.o
+ .debug_abbrev    0x00065b         0xc5 build/default/production/mcc_generated_files/clock.o
+ .debug_abbrev    0x000720         0x34 build/default/production/mcc_generated_files/system.o
+ .debug_abbrev    0x000754         0xf7 build/default/production/main.o
 
-.debug_line       0x000000        0x8d7
+.debug_line       0x000000        0x8ee
  *(.debug_line)
  .debug_line      0x000000        0x139 build/default/production/APIs/i2c1.o
  .debug_line      0x000139        0x13d build/default/production/APIs/uart2.o
- .debug_line      0x000276        0x11b build/default/production/APIs/XZsensor.o
- .debug_line      0x000391         0x55 build/default/production/mcc_generated_files/interrupt_manager.o
- .debug_line      0x0003e6        0x12b build/default/production/mcc_generated_files/traps.o
- .debug_line      0x000511        0x11a build/default/production/mcc_generated_files/pin_manager.o
- .debug_line      0x00062b         0x49 build/default/production/mcc_generated_files/mcc.o
- .debug_line      0x000674        0x102 build/default/production/mcc_generated_files/clock.o
- .debug_line      0x000776         0x4d build/default/production/mcc_generated_files/system.o
- .debug_line      0x0007c3        0x114 build/default/production/main.o
+ .debug_line      0x000276        0x134 build/default/production/APIs/XZsensor.o
+ .debug_line      0x0003aa         0x55 build/default/production/mcc_generated_files/interrupt_manager.o
+ .debug_line      0x0003ff        0x12b build/default/production/mcc_generated_files/traps.o
+ .debug_line      0x00052a        0x11a build/default/production/mcc_generated_files/pin_manager.o
+ .debug_line      0x000644         0x49 build/default/production/mcc_generated_files/mcc.o
+ .debug_line      0x00068d        0x102 build/default/production/mcc_generated_files/clock.o
+ .debug_line      0x00078f         0x4d build/default/production/mcc_generated_files/system.o
+ .debug_line      0x0007dc        0x112 build/default/production/main.o
 
-.debug_frame      0x000000        0x4ec
+.debug_frame      0x000000        0x508
  *(.debug_frame)
  .debug_frame     0x000000        0x116 build/default/production/APIs/i2c1.o
  .debug_frame     0x000116         0xfc build/default/production/APIs/uart2.o
- .debug_frame     0x000212        0x12c build/default/production/APIs/XZsensor.o
- .debug_frame     0x00033e         0x30 build/default/production/mcc_generated_files/interrupt_manager.o
- .debug_frame     0x00036e         0x80 build/default/production/mcc_generated_files/traps.o
- .debug_frame     0x0003ee         0x30 build/default/production/mcc_generated_files/pin_manager.o
- .debug_frame     0x00041e         0x30 build/default/production/mcc_generated_files/mcc.o
- .debug_frame     0x00044e         0x30 build/default/production/mcc_generated_files/clock.o
- .debug_frame     0x00047e         0x30 build/default/production/mcc_generated_files/system.o
- .debug_frame     0x0004ae         0x3e build/default/production/main.o
+ .debug_frame     0x000212        0x156 build/default/production/APIs/XZsensor.o
+ .debug_frame     0x000368         0x30 build/default/production/mcc_generated_files/interrupt_manager.o
+ .debug_frame     0x000398         0x80 build/default/production/mcc_generated_files/traps.o
+ .debug_frame     0x000418         0x30 build/default/production/mcc_generated_files/pin_manager.o
+ .debug_frame     0x000448         0x30 build/default/production/mcc_generated_files/mcc.o
+ .debug_frame     0x000478         0x30 build/default/production/mcc_generated_files/clock.o
+ .debug_frame     0x0004a8         0x30 build/default/production/mcc_generated_files/system.o
+ .debug_frame     0x0004d8         0x30 build/default/production/main.o
 
-.debug_str        0x000000         0xd6
+.debug_str        0x000000         0xcc
  *(.debug_str)
  .debug_str       0x000000         0x35 build/default/production/APIs/i2c1.o
  .debug_str       0x000035         0x27 build/default/production/APIs/uart2.o
- .debug_str       0x00005c         0x4f build/default/production/APIs/XZsensor.o
- .debug_str       0x0000ab          0xc build/default/production/mcc_generated_files/traps.o
- .debug_str       0x0000b7          0xb build/default/production/mcc_generated_files/clock.o
- .debug_str       0x0000c2         0x14 build/default/production/main.o
+ .debug_str       0x00005c         0x45 build/default/production/APIs/XZsensor.o
+ .debug_str       0x0000a1          0xc build/default/production/mcc_generated_files/traps.o
+ .debug_str       0x0000ad          0xb build/default/production/mcc_generated_files/clock.o
+ .debug_str       0x0000b8         0x14 build/default/production/main.o
 
 .debug_loc
  *(.debug_loc)
@@ -464,28 +466,28 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x333
+                  0x000000        0x342
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x93 build/default/production/APIs/i2c1.o
  .debug_pubnames
                   0x000093         0xa5 build/default/production/APIs/uart2.o
  .debug_pubnames
-                  0x000138         0x9e build/default/production/APIs/XZsensor.o
+                  0x000138         0xad build/default/production/APIs/XZsensor.o
  .debug_pubnames
-                  0x0001d6         0x2b build/default/production/mcc_generated_files/interrupt_manager.o
+                  0x0001e5         0x2b build/default/production/mcc_generated_files/interrupt_manager.o
  .debug_pubnames
-                  0x000201         0x6f build/default/production/mcc_generated_files/traps.o
+                  0x000210         0x6f build/default/production/mcc_generated_files/traps.o
  .debug_pubnames
-                  0x000270         0x2d build/default/production/mcc_generated_files/pin_manager.o
+                  0x00027f         0x2d build/default/production/mcc_generated_files/pin_manager.o
  .debug_pubnames
-                  0x00029d         0x2c build/default/production/mcc_generated_files/mcc.o
+                  0x0002ac         0x2c build/default/production/mcc_generated_files/mcc.o
  .debug_pubnames
-                  0x0002c9         0x27 build/default/production/mcc_generated_files/clock.o
+                  0x0002d8         0x27 build/default/production/mcc_generated_files/clock.o
  .debug_pubnames
-                  0x0002f0         0x28 build/default/production/mcc_generated_files/system.o
+                  0x0002ff         0x28 build/default/production/mcc_generated_files/system.o
  .debug_pubnames
-                  0x000318         0x1b build/default/production/main.o
+                  0x000327         0x1b build/default/production/main.o
 
 .debug_ranges
  *(.debug_ranges)
@@ -1221,63 +1223,64 @@ __c30_signature
 .config_IESO      0x0157fc          0x2
  .config_IESO     0x0157fc          0x2 build/default/production/mcc_generated_files/mcc.o
 
-.const              0x8d34         0xbc load address 0x000d34  
+.const              0x8d34         0xba load address 0x000d34  
  .const             0x8d34         0x52 build/default/production/APIs/uart2.o
- .const             0x8d86         0x2a build/default/production/main.o
- .const             0x8db0         0x22 build/default/production/APIs/XZsensor.o
- .const             0x8dd2         0x1e build/default/production/APIs/i2c1.o
+ .const             0x8d86         0x2a build/default/production/APIs/XZsensor.o
+ .const             0x8db0         0x20 build/default/production/main.o
+ .const             0x8dd0         0x1e build/default/production/APIs/i2c1.o
 
-.text             0x000df0        0x44a
- .text            0x000df0        0x178 build/default/production/APIs/i2c1.o
-                  0x000df0                  _I2C1_Initialize
-                  0x000e28                  _startI2C1
-                  0x000e3a                  _stopI2C1
-                  0x000e4c                  _putI2C1
-                  0x000e72                  _getI2C1
-                  0x000ec0                  _write1I2C1
-                  0x000ed8                  _writeNI2C1
-                  0x000f0a                  _read1I2C1
-                  0x000f26                  _readNI2C1
- .text            0x000f68        0x154 build/default/production/main.o
-                  0x000f68                  _main
- .text            0x0010bc         0xd2 build/default/production/APIs/uart2.o
-                  0x0010bc                  _UART2_Initialize
-                  0x0010dc                  _outChar
-                  0x0010f4                  _inChar
-                  0x00111c                  _outString
-                  0x001136                  _inString
-                  0x00117a                  _checkRxErrorUART2
- .text            0x00118e         0xac build/default/production/APIs/XZsensor.o
-                  0x00118e                  _INT0_Initialize
-                  0x0011a6                  _WriteByte
-                  0x0011c2                  _ReadByte
-                  0x0011e2                  _XZ_Initialize
-                  0x0011f4                  _readX
-                  0x001202                  _readZ
-                  0x001210                  _IO_Initialize
-                  0x00121c                  _colorPix
-                  0x001226                  _erasePix
-                  0x001230                  _clrScr
+.text             0x000dee        0x45c
+ .text            0x000dee        0x178 build/default/production/APIs/i2c1.o
+                  0x000dee                  _I2C1_Initialize
+                  0x000e26                  _startI2C1
+                  0x000e38                  _stopI2C1
+                  0x000e4a                  _putI2C1
+                  0x000e70                  _getI2C1
+                  0x000ebe                  _write1I2C1
+                  0x000ed6                  _writeNI2C1
+                  0x000f08                  _read1I2C1
+                  0x000f24                  _readNI2C1
+ .text            0x000f66        0x140 build/default/production/main.o
+                  0x000f66                  _main
+ .text            0x0010a6         0xd2 build/default/production/APIs/uart2.o
+                  0x0010a6                  _UART2_Initialize
+                  0x0010c6                  _outChar
+                  0x0010de                  _inChar
+                  0x001106                  _outString
+                  0x001120                  _inString
+                  0x001164                  _checkRxErrorUART2
+ .text            0x001178         0xd2 build/default/production/APIs/XZsensor.o
+                  0x001178                  _INT0_Initialize
+                  0x001190                  _WriteByte
+                  0x0011ac                  _ReadByte
+                  0x0011cc                  _XZ_Initialize
+                  0x0011de                  _readX
+                  0x0011ec                  _readZ
+                  0x0011fa                  _IO_Initialize
+                  0x001206                  _moveCursor
+                  0x00122c                  _colorPix
+                  0x001236                  _erasePix
+                  0x001240                  _clrScr
 
-.dinit            0x00123a         0x56
- .dinit           0x00123a         0x56 data_init
+.dinit            0x00124a         0x56
+ .dinit           0x00124a         0x56 data_init
 
-.text             0x001290         0x84
- .text            0x001290         0x46 build/default/production/mcc_generated_files/pin_manager.o
-                  0x001290                  _PIN_MANAGER_Initialize
- .text            0x0012d6         0x3e build/default/production/mcc_generated_files/clock.o
-                  0x0012d6                  _CLOCK_Initialize
+.text             0x0012a0         0x84
+ .text            0x0012a0         0x46 build/default/production/mcc_generated_files/pin_manager.o
+                  0x0012a0                  _PIN_MANAGER_Initialize
+ .text            0x0012e6         0x3e build/default/production/mcc_generated_files/clock.o
+                  0x0012e6                  _CLOCK_Initialize
 
-.init.delay32     0x001314         0x1c
- .init.delay32    0x001314         0x1c c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
-                  0x001314                  ___delay32
+.init.delay32     0x001324         0x1c
+ .init.delay32    0x001324         0x1c c:/program files (x86)/microchip/xc16/v1.35/bin/bin/../../lib\liblega-pic30-elf.a(delay32.Leo)
+                  0x001324                  ___delay32
 
-.text             0x001330         0x30
- .text            0x001330         0x16 build/default/production/mcc_generated_files/traps.o
-                  0x001330                  _TRAPS_halt_on_error
- .text            0x001346          0xc build/default/production/mcc_generated_files/system.o
-                  0x001346                  _SYSTEM_Initialize
- .text            0x001352          0x8 build/default/production/mcc_generated_files/mcc.o
-                  0x001352                  _OSCILLATOR_Initialize
- .text            0x00135a          0x6 build/default/production/mcc_generated_files/interrupt_manager.o
-                  0x00135a                  _INTERRUPT_Initialize
+.text             0x001340         0x30
+ .text            0x001340         0x16 build/default/production/mcc_generated_files/traps.o
+                  0x001340                  _TRAPS_halt_on_error
+ .text            0x001356          0xc build/default/production/mcc_generated_files/system.o
+                  0x001356                  _SYSTEM_Initialize
+ .text            0x001362          0x8 build/default/production/mcc_generated_files/mcc.o
+                  0x001362                  _OSCILLATOR_Initialize
+ .text            0x00136a          0x6 build/default/production/mcc_generated_files/interrupt_manager.o
+                  0x00136a                  _INTERRUPT_Initialize

@@ -9,6 +9,7 @@
 #include <string.h>
 #include "XZsensor.h"
 #include "i2c1.h"
+#include "uart2.h"
 
 /*
  *  Initializes INT0 to detect a HIGH from XZ sensor's DR pin.
@@ -103,6 +104,19 @@ void IO_Initialize(void)
     TRISDbits.TRISD6 = 1;       // pushbutton S3
     TRISDbits.TRISD13 = 1;      // pushbutton S4
     TRISAbits.TRISA7 = 1;       // pushbutton S5
+}
+
+/*
+ *  Outputs the cursor position to Tera Term via UART
+ *  Parameters: - pBuff:    text buffer
+ *              - z:        z coordinate of cursor
+ *              - x:        x coordinate of cursor
+ *  Return:     None
+ */
+void moveCursor(char* pBuff, unsigned char z, unsigned char x)
+{
+    sprintf(pBuff, "\033[%u;%uH", z, x);
+    outString(pBuff);
 }
 
 /*

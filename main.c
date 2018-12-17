@@ -82,8 +82,7 @@ int main(void)
         else if(zDir == DOWN && zCursor < SCREEN_H) zCursor++;
         
         // outputs cursor position to Tera Term window
-        sprintf(txtBuff, "\033[%u;%uH", zCursor, xCursor);
-        outString(txtBuff);
+        moveCursor(txtBuff, zCursor, xCursor);
 
         // polls push buttons for action
         if(!S4) colorPix();     // draw at cursor
