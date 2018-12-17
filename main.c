@@ -19,10 +19,7 @@
                          Main application
  */
 int main(void)
-{
-    // enum for movement macros
-    enum{NOMOVE, LEFT, RIGHT, UP, DOWN};
-    
+{    
     // InitMsg: string with clearscreen and cursor home commands + Initialization message
     // txtBuff: char array to hold string to output to Tera Term
     char InitMsg[32] = "\033[2J\033[HSystem initialized!\n\r";
@@ -32,12 +29,9 @@ int main(void)
     // zCoord: Z Position from XZ Sensor
     // LastX: last X Position from XZ Sensor
     // LastZ: last Z Position from XZ Sensor
-    // xScreen: cursor X position in Tera Term window, initialized to middle
-    // zScreen: cursor Z position in Tera Term window, initialized to middle
-    // xDir: determines left or right cursor movement
-    // zDir: determines up or down cursor movement
+    // xCursor: cursor X position in Tera Term window, initialized to middle
+    // xCursor: cursor Z position in Tera Term window, initialized to middle
     unsigned char xCoord = 0, zCoord = 0, LastX, LastZ, xCursor = 92, zCursor = 39;
-    int xDir, zDir;
     
     // initialize the device
     SYSTEM_Initialize();
@@ -62,24 +56,8 @@ int main(void)
         xCoord = readXcoord();
         zCoord = readZcoord();
         
-        // first, if coordinates are same as the last then no movement
-        // determines if received coordinates are within deadzone,
-        // if not decides left, right, up, or down movement
-        if(xCoord == LastX) xDir = NOMOVE;                                                          // same coords check
-        else if((MIDPOINT - DEADZONE < xCoord) && (xCoord < MIDPOINT + DEADZONE)) xDir = NOMOVE;    // x deadzone check
-        else xDir = (MIDPOINT > (int)xCoord )? LEFT : RIGHT;                                        // left or right movement
-    
-        if(zCoord == LastZ) zDir = NOMOVE;                                                          // same coords check
-        else if((MIDPOINT - DEADZONE < zCoord) && (zCoord < MIDPOINT + DEADZONE)) zDir = NOMOVE;    // z deadzone check
-        else zDir = ((int)zCoord > MIDPOINT)? UP : DOWN;                                            // up or down movement 
-        
-        // moves cursor depending on value of xDir, only if within 0 to SCREEN_W boundaries
-        if(xDir == LEFT && xCursor > 0) xCursor--;
-        else if(xDir == RIGHT && xCursor < SCREEN_W) xCursor++;
-        
-        // moves cursor depending on value of zDir, only if within 0 to SCREEN_H boundaries
-        if(zDir == UP && zCursor > 0) zCursor--;
-        else if(zDir == DOWN && zCursor < SCREEN_H) zCursor++;
+        // checks movement direction
+        checkDir(LastX, LastZ, xCoord, zCoord, &xCursor, &zCursor);
         
         // outputs cursor position to Tera Term window
         moveCursor(txtBuff, zCursor, xCursor);

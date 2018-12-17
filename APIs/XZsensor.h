@@ -37,6 +37,13 @@
 #define MIDPOINT    120
 #define DEADZONE    20
 
+// movement macros
+#define NOMOVE  0
+#define LEFT    1
+#define RIGHT   2
+#define UP      3
+#define DOWN    4
+
 ////////////////////////////// Function prototypes /////////////////////////////
 void INT0_Initialize(void);
 void WriteByte(_wchar_t reg, char data);
@@ -44,6 +51,7 @@ char ReadByte(_wchar_t reg);
 void XZ_Initialize(void);
 unsigned char readXcoord(void);
 unsigned char readZcoord(void);
+void checkDir(unsigned char xL, unsigned char zL, unsigned char xCo, unsigned char zCo, unsigned char* pxCu, unsigned char* pzCu);
 void moveCursor(char* pBuff, unsigned char z, unsigned char x);
 void colorPix(void);
 void erasePix(void);

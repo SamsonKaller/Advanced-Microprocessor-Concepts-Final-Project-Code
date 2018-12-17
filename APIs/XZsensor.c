@@ -72,6 +72,18 @@ void XZ_Initialize(void)
 }
 
 /*
+ *  Initializes push buttons on Explorer16 as inputs.
+ *  Parameters: None
+ *  Return:     None
+ */
+void IO_Initialize(void)
+{
+    TRISDbits.TRISD6 = 1;       // pushbutton S3
+    TRISDbits.TRISD13 = 1;      // pushbutton S4
+    TRISAbits.TRISA7 = 1;       // pushbutton S5
+}
+
+/*
  *  Reads data from X Position register of XZ sensor.
  *  Parameters: None
  *  Return:     xData: X position from XZ sensor
@@ -94,16 +106,41 @@ unsigned char readZcoord(void)
     zData = ReadByte(Z_REG);
     return(zData);
 }
+
 /*
- *  Initializes push buttons on Explorer16 as inputs.
- *  Parameters: None
- *  Return:     None
+ *  Determines cursor movement direction from XZ sensor coordinates and updates
+ *  cursor position.
+ *  Parameters: - xL: last X Position from XZ Sensor
+ *              - zL: last Z Position from XZ Sensor
+ *              - xCo: X Position from XZ Sensor
+ *              - zCo: Z Position from XZ Sensor
+ *              - pxCU: pointer to cursor X position
+ *              - pzCu: pointer to cursor Z position
  */
-void IO_Initialize(void)
+void checkDir(unsigned char xL, unsigned char zL, unsigned char xCo, unsigned char zCo, unsigned char* pxCu, unsigned char* pzCu)
 {
-    TRISDbits.TRISD6 = 1;       // pushbutton S3
-    TRISDbits.TRISD13 = 1;      // pushbutton S4
-    TRISAbits.TRISA7 = 1;       // pushbutton S5
+    // xDir: determines left or right cursor movement
+    // zDir: determines up or down cursor movement
+    int xDir = 0, zDir = 0;
+    
+    // first, if coordinates are same as the last then no movement,
+    // then determines if received coordinates are within deadzone,
+    // if not decides left, right, up, or down movement
+    if(xCo == xL) xDir = NOMOVE;                                                          // same coords check
+    else if((MIDPOINT - DEADZONE < xCo) && (xCo < MIDPOINT + DEADZONE)) xDir = NOMOVE;    // x deadzone check
+    else xDir = (MIDPOINT > (int)xCo)? LEFT : RIGHT;                                     // left or right movement
+
+    if(zCo == zL) zDir = NOMOVE;                                                          // same coords check
+    else if((MIDPOINT - DEADZONE < zCo) && (zCo < MIDPOINT + DEADZONE)) zDir = NOMOVE;    // z deadzone check
+    else zDir = ((int)zCo > MIDPOINT)? UP : DOWN;                                         // up or down movement 
+
+    // moves cursor depending on value of xDir, only if within 0 to SCREEN_W boundaries
+    if(xDir == LEFT && *pxCu > 0) *pxCu--;
+    else if(xDir == RIGHT && *pxCu < SCREEN_W) *pxCu++;
+
+    // moves cursor depending on value of zDir, only if within 0 to SCREEN_H boundaries
+    if(zDir == UP && *pzCu > 0) *pzCu--;
+    else if(zDir == DOWN && *pzCu < SCREEN_H) *pzCu++;
 }
 
 /*
