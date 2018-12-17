@@ -117,7 +117,7 @@ unsigned char readZcoord(void)
  *              - pxCU: pointer to cursor X position
  *              - pzCu: pointer to cursor Z position
  */
-void checkDir(unsigned char xL, unsigned char zL, unsigned char xCo, unsigned char zCo, unsigned char* pxCu, unsigned char* pzCu)
+void checkDir(uchar xL, uchar zL, uchar xCo, uchar zCo, uchar* pxCu, uchar* pzCu)
 {
     // xDir: determines left or right cursor movement
     // zDir: determines up or down cursor movement

@@ -11,6 +11,7 @@
 ////////////////////////////// Application Macros //////////////////////////////
 #define ISR_NO_PSV  __attribute__((__interrupt__, no_auto_psv))
 #define _wchar_t    unsigned int
+#define uchar       unsigned char
 
 // I2C address of XZ sensor
 #define ADDR        0x20
