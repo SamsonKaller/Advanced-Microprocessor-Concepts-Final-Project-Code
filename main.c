@@ -63,9 +63,9 @@ int main(void)
         moveCursor(txtBuff, zCursor, xCursor);
 
         // polls push buttons for action
-        if(!S4) colorPix();     // draw at cursor
-        if(!S5) erasePix();     // erase at cursor
-        if(!S3) clrScr();       // clears the screen
+        if(!S4) colorPix();         // draw at cursor
+        if(!S5) erasePix();         // erase at cursor
+        if(!S3) clrScr(InitMsg);    // clears the screen and write init message
         
         // debugging: displays X-Z positions from XZ sensor
         // (does not work when outputting cursor position to screen)

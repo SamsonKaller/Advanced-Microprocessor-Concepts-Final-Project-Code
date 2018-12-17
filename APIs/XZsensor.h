@@ -56,6 +56,6 @@ void checkDir(unsigned char xL, unsigned char zL, unsigned char xCo, unsigned ch
 void moveCursor(char* pBuff, unsigned char z, unsigned char x);
 void colorPix(void);
 void erasePix(void);
-void ClrScr(void);
+void ClrScr(char* pStr);
 
 #endif	/* XZSENSOR_H */

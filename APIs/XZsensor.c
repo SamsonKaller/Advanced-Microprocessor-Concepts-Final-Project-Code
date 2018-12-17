@@ -135,12 +135,12 @@ void checkDir(uchar xL, uchar zL, uchar xCo, uchar zCo, uchar* pxCu, uchar* pzCu
     else zDir = ((int)zCo > MIDPOINT)? UP : DOWN;                                         // up or down movement 
 
     // moves cursor depending on value of xDir, only if within 0 to SCREEN_W boundaries
-    if(xDir == LEFT && *pxCu > 0) *pxCu--;
-    else if(xDir == RIGHT && *pxCu < SCREEN_W) *pxCu++;
+    if(xDir == LEFT && *pxCu > 0) (*pxCu)--;
+    else if(xDir == RIGHT && *pxCu < SCREEN_W) (*pxCu)++;
 
     // moves cursor depending on value of zDir, only if within 0 to SCREEN_H boundaries
-    if(zDir == UP && *pzCu > 0) *pzCu--;
-    else if(zDir == DOWN && *pzCu < SCREEN_H) *pzCu++;
+    if(zDir == UP && *pzCu > 0) (*pzCu)--;
+    else if(zDir == DOWN && *pzCu < SCREEN_H) (*pzCu)++;
 }
 
 /*
@@ -181,8 +181,8 @@ void erasePix(void)
  *  Parameters: None
  *  Return:     None
  */
-void clrScr(void)
+void clrScr(char* pStr)
 {
-    outString("\033[2J\033[HSystem initialized!\n\r");
+    outString(pStr);
 }
 
