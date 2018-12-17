@@ -62,16 +62,16 @@ int main(void)
         xCoord = readX();
         zCoord = readZ();
         
+        // first, if coordinates are same as the last then no movement
         // determines if received coordinates are within deadzone,
         // if not decides left, right, up, or down movement
-        if((MIDPOINT - DEADZONE < xCoord) && (xCoord < MIDPOINT + DEADZONE)) xDir = NOMOVE; // x deadzone check
-        else xDir = (120 - (int)xCoord > 0)? LEFT : RIGHT;                                  // left or right movement
-        if((MIDPOINT - DEADZONE < zCoord) && (zCoord < MIDPOINT + DEADZONE)) zDir = NOMOVE; // z deadzone check
-        else zDir = ((int)zCoord > 120)? UP : DOWN;                                         // up or down movement
-        
-        // if coordinates are the same as the last ones then no movement
-        if(xCoord == LastX) xDir = NOMOVE;
-        if(zCoord == LastZ) zDir = NOMOVE;
+        if(xCoord == LastX) xDir = NOMOVE;                                                          // same coords check
+        else if((MIDPOINT - DEADZONE < xCoord) && (xCoord < MIDPOINT + DEADZONE)) xDir = NOMOVE;    // x deadzone check
+        else xDir = (MIDPOINT > (int)xCoord )? LEFT : RIGHT;                                        // left or right movement
+    
+        if(zCoord == LastZ) zDir = NOMOVE;                                                          // same coords check
+        else if((MIDPOINT - DEADZONE < zCoord) && (zCoord < MIDPOINT + DEADZONE)) zDir = NOMOVE;    // z deadzone check
+        else zDir = ((int)zCoord > MIDPOINT)? UP : DOWN;                                            // up or down movement 
         
         // moves cursor depending on value of xDir, only if within 0 to SCREEN_W boundaries
         if(xDir == LEFT && xCursor > 0) xCursor--;
